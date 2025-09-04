@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Moderation AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Content Moderation AI System</h1>
+            <p>Multi-agent system for automated content moderation</p>
+        </header>
+        
+        <div class="content-form">
+            <h2>Analyze Content</h2>
+            <textarea id="contentInput" placeholder="Enter text to moderate..."></textarea>
+            <div class="input-group">
+                <label for="userId">User ID (optional):</label>
+                <input type="text" id="userId" placeholder="Anonymous">
+            </div>
+            <button id="analyzeBtn">Analyze Content</button>
+        </div>
+        
+        <div id="results" class="hidden">
+            <h2>Analysis Results</h2>
+            
+            <div class="result-section">
+                <h3>Classification</h3>
+                <div id="classificationResults" class="results-container"></div>
+            </div>
+            
+            <div class="result-section">
+                <h3>Risk Assessment</h3>
+                <div id="riskResults" class="results-container"></div>
+            </div>
+            
+            <div class="result-section">
+                <h3>Recommended Actions</h3>
+                <div id="actionResults" class="results-container"></div>
+            </div>
+        </div>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing content...</p>
+        </div>
+        
+        <div id="error" class="hidden error-message"></div>
+
+            <!-- Add this section before the closing </div> tag -->
+<!-- Replace the entire System Transparency section with this code -->
+<div class="result-section">
+    <h3>System Transparency</h3>
+    <div class="results-container">
+        <div class="transparency-stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Decisions Made:</span>
+                <span class="stat-value" id="totalDecisions">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">High Risk Content:</span>
+                <span class="stat-value" id="highRiskPercent">0%</span>
+                <span class="stat-count" id="highRiskCount">(0)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Medium Risk Content:</span>
+                <span class="stat-value" id="mediumRiskPercent">0%</span>
+                <span class="stat-count" id="mediumRiskCount">(0)</span>
+            </div>
+        </div>
+        <button id="refreshStatsBtn" class="btn-secondary">
+            Refresh Transparency Report
+        </button>
+        
+        <!-- Debug section (optional) -->
+        <details style="margin-top: 15px;">
+            <summary>Debug Info</summary>
+            <pre id="debugInfo" style="background: #f5f5f5; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 12px; max-height: 200px; overflow: auto;"></pre>
+        </details>
+    </div>
+</div>
+
+<div class="result-section">
+    <h3>Feedback & Improvement</h3>
+    <div class="results-container">
+        <p>Help improve our AI system by providing feedback:</p>
+        <div class="input-group">
+            <label for="feedbackAccuracy">Was this analysis accurate?</label>
+            <select id="feedbackAccuracy">
+                <option value="">Select accuracy</option>
+                <option value="accurate">Accurate</option>
+                <option value="inaccurate">Inaccurate</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="feedbackNotes">Additional notes (optional):</label>
+            <textarea id="feedbackNotes" placeholder="Your feedback here..."></textarea>
+        </div>
+        <button onclick="submitFeedback()" class="btn-secondary">Submit Feedback</button>
+    </div>
+</div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

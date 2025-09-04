@@ -1,0 +1,13 @@
+flask
+transformers
+torch
+numpy
+sentencepiece
+requests
+python-dotenv
+cryptography
+spacy
+sumy
+scikit-learn
+pandas
+accelerate
